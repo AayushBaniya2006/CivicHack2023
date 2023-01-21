@@ -3,7 +3,8 @@ import requests
 from bs4 import BeautifulSoup
 import urllib.request
 from selenium import webdriver
-
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.common.by import By
 
 
 def get_ip():
@@ -30,16 +31,16 @@ soup = BeautifulSoup(r.content, 'html.parser')
 location = get_location()
 search = location["city"]
 
-content = soup.find(id = 'searchbox')
 
 driver = webdriver.Firefox()
 driver.implicitly_wait(10) # this lets webdriver wait 10 seconds for the website to load
 driver.get("https://www.google.com/maps")
 
 
-text_box = driver.find_element("id", "searchbox")
-
-text_box.send_keys(content) # enter text in input
+# text_box = driver.find_element("id", "searchbox")
+text_box = driver.find_element(By.ID, "searchbox")
+text_box.click()
+text_box.send_keys(search) # enter text in input
 
 driver.find_element("id", 'searchbox-searchbutton').click() # click the submit button
 
