@@ -17,8 +17,9 @@ c = conn.cursor()
 #Hopefully, a method that removes usernames the name in the removeUser(name) refers to the original username that a user wishes to change
 def removeUser(name):
     print('Enter the your new name')
+    x = input()
     theUser = get_users_by_name(name)
-    remove_user(theUser)
+    remove_user(theUser, x)
 
 def changeName(name):
     theUser = get_users_by_name(name)
