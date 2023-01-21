@@ -14,16 +14,17 @@ c = conn.cursor()
 #            email TEXT
 #            )""")
 
-#Hopefully, a method that removes usernames the name in the removeUser(name) refers to the original username that a user wishes to change
+#Hopefully, a method that removes usernames. The name in the removeUser(name) refers to the original username that a user wishes to change
 def removeUser(name):
-    print('Enter the your new name')
-    x = input()
     theUser = get_users_by_name(name)
     remove_user(theUser, x)
 
+#Hopefully a method that changes the username. The name in changeName(name) refers to the original username
 def changeName(name):
+    print('Enter the your new name')
+    x = input()
     theUser = get_users_by_name(name)
-    (theUser)
+    update_username(theUser, x)
 
 #Inserts a new user into the SQl database
 def insert_user(user):
