@@ -11,11 +11,15 @@ class Users:
         return '{}','{}'.format(self.name, self.email)
     
     @property
-    def userName(self):
+    def getName(self):
         return '{}'.format(self.name)
+    
+    @property
+    def getPassword(self):
+        return '{}'.format(self.password)
 
     @property
     def __repr__(self):
         return "Employee('{}','{}', '{}')".format(self.name, self.password, self.email)
     
-
+    
