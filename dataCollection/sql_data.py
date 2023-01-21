@@ -9,13 +9,13 @@ c = conn.cursor()
 #6 quotations basically just allow you to make 1 string across multiple lines
 #Creates table-> Only needs to be run once.
 #c.execute("""CREATE TABLE users (
- #           username TEXT,
- #           password TEXT,
- #           email TEXT
+#            username TEXT,
+#            password TEXT,
+#            email TEXT
 #            )""")
 
 #Inserts data into the table
-c.execute("INSERT INTO users VALUES ('Mary', 'IAmTheDanger', 'lock&key@gmail.com')")
+#c.execute("INSERT INTO users VALUES ('Mary', 'IAmTheDanger', 'lock&key@gmail.com')")
 
 #Pulls data from SQL database
 c.execute("SELECT * from users")
@@ -26,9 +26,13 @@ print(c.fetchone())
 print(c.fetchall())
 
 user_1 = Users('JackStauber', 'PokingCars', 'placeholder')
-c.execute("INSERT INTO users VALUES (?, ?, ?)", (user_1.name, user_1.password, user_1.email))
+#c.execute("INSERT INTO users VALUES (?, ?, ?)", (user_1.name, user_1.password, user_1.email))
 #commits current transaction -> Puts data in database
-conn.commit()
+#conn.commit()
 
 #closes the database
-conn.close()
+
+c.execute("DELETE FROM users WHERE username LIKE '%JackStauber%'")
+conn.commit()
+def removeUsers(name):
+    c.execute("DELETE FROM users WHERE username=name")
