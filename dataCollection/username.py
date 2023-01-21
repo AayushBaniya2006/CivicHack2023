@@ -12,8 +12,9 @@ class Users:
     
     @property
     def userName(self):
-        return '{} {}'.format(self.name)
-    
+        return '{}'.format(self.name)
+
+    @property
     def __repr__(self):
         return "Employee('{}','{}', '{}')".format(self.name, self.password, self.email)
     

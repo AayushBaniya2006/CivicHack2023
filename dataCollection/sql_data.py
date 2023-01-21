@@ -26,13 +26,12 @@ print(c.fetchone())
 print(c.fetchall())
 
 user_1 = Users('JackStauber', 'PokingCars', 'placeholder')
-#c.execute("INSERT INTO users VALUES (?, ?, ?)", (user_1.name, user_1.password, user_1.email))
+c.execute("INSERT INTO users VALUES (?, ?, ?)", (user_1.name, user_1.password, user_1.email))
 #commits current transaction -> Puts data in database
 #conn.commit()
 
 #closes the database
 
-c.execute("DELETE FROM users WHERE username LIKE '%JackStauber%'")
-conn.commit()
 def removeUsers(name):
-    c.execute("DELETE FROM users WHERE username=name")
+    c.execute("DELETE FROM users WHERE username=?",(name))
+    conn.commit()
