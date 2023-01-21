@@ -1,5 +1,5 @@
-#All of this is tutorial stuff atm - can be rewritten later
-class Employee :
+#All of this is tutorial
+class Users:
     
     def __init__(self, name, password, email):
         self.name = name
@@ -7,11 +7,13 @@ class Employee :
         self.email = email
     
     @property
-    def email(self):
-        return '{}@email.com'.format(self.name)
+    def profileInfo(self):
+        return '{}','{}'.format(self.name, self.email)
     
     @property
-    def fullname(self):
-        return '{}'.format(self.name)
+    def userName(self):
+        return '{} {}'.format(self.name)
+    
     def __repr__(self):
-        return "User ('{}', '{}')".format(self.name, self.email)
+        return "Employee('{}','{}', '{}')".format(self.name, self.password, self.email)
+    
