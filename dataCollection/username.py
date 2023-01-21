@@ -1,4 +1,4 @@
-#All of this is tutorial
+#Creates the user class
 class Users:
     
     def __init__(self, name, password, email):
@@ -18,3 +18,4 @@ class Users:
     def __repr__(self):
         return "Employee('{}','{}', '{}')".format(self.name, self.password, self.email)
     
+

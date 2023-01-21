@@ -14,24 +14,22 @@ c = conn.cursor()
 #            email TEXT
 #            )""")
 
-#Inserts data into the table
-#c.execute("INSERT INTO users VALUES ('Mary', 'IAmTheDanger', 'lock&key@gmail.com')")
+def insert_user(user):
+    with conn:
+        c.execute("INSERT INTO users VALUES (:username, :password : email)", {'username': user.username, 'password': user.password, 'email': user.email})
 
-#Pulls data from SQL database
-c.execute("SELECT * from users")
+def get_users_by_name(name):
+    c.execute("SELECT * FROM employees WHERE username=:username", {'username': name})
+    return c.fetchall()
+    
+def update_users(user, name):
+    with conn:
+        c.execute("""UPDATE users SET username = :username
+                  WHERE password = :password AND email = :email""",
+                  {'password': user.password, 'email': user.email, 'username': name})
 
-#Fetches one row from the table
-print(c.fetchone())
-#Fetches all rows from the table
-print(c.fetchall())
+def remove_user(user):
+    with conn:
+        c.execute("DELETE from users WHERE username = :username AND password = :password",
+                  {'username':user.first, 'password': user.password})
 
-user_1 = Users('JackStauber', 'PokingCars', 'placeholder')
-c.execute("INSERT INTO users VALUES (?, ?, ?)", (user_1.name, user_1.password, user_1.email))
-#commits current transaction -> Puts data in database
-#conn.commit()
-
-#closes the database
-
-def removeUsers(name):
-    c.execute("DELETE FROM users WHERE username=?",(name))
-    conn.commit()
