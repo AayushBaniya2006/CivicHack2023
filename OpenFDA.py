@@ -17,4 +17,3 @@ for a in soup.find_all('a',href=True):
 
     print ("Found the URL:",a['href'])
 
-driver.close()
