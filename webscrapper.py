@@ -7,11 +7,17 @@ import urllib.request
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
+from flask import Flask, request, render_template
 
 # url = "https://www.goodrx.com/"
 # html = requests.get(url)
 # header = {'origin': 'https://www.goodrx.com/'} 
 # r = BeautifulSoup(html.content , 'lxml')
+
+app = Flask(__name__)
+@app.route('/')
+def index():
+    return render_template('TestMain.html')
 
 driver = webdriver.Chrome(executable_path="C:\chromedriver.exe")
 driver.implicitly_wait(0.5)

@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -16,14 +15,13 @@
         <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/template.css" rel="stylesheet" />
+
+        <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+        <script defer src="https://pyscript.net/latest/pyscript.js"></script>
         <script src = "testjs.js"></script>
     </head>
     <body id="page-top">
-
-
-
         
-
 
         <!-- Masthead-->
         <header class="masthead">
@@ -35,20 +33,28 @@
                 <div class="masthead-heading text-uppercase" style="color: rgb(0, 0, 0);">DrugWizard</div>
                     <form>
                         <label for="search"> </label>
-                        <input type="text" id="search" name="search" placeholder="Search for Medication:">
+                        <input class="PleaseWork"type="text" id="search" name="search" placeholder="Search for Medication:">
 
                         <button class="stylish-button">Click Here!</button>
                         <div id="output"></div>
                     </form>
 
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
                     
                 </div>                
             </div>
-
+            <py-script>
+                drugNeeded = PleaseWork
+                for drug in data["results"]:
+                    for product in drug["products"]:
+                        if drugNeeded.upper() == product["brand_name"]:
+                            print("Method of Consumption: " + product["dosage_form"])
+                            print("Indredients:")
+                        for ingredient in product["active_ingredients"]:
+                            print(ingredient["strength"]+" " + ingredient["name"])
+                        break
+    
+            
+            </py-script>
             <!-- JS for changing info at bottom-->
             <div style ="color:black">
                 
@@ -206,4 +212,5 @@
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
         <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
     </body>
+    
 </html>
