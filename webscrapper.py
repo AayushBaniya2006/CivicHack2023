@@ -1,3 +1,5 @@
+import time
+from email import header
 import pip._vendor.requests 
 import requests
 from bs4 import BeautifulSoup
@@ -6,46 +8,27 @@ from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 
+# url = "https://www.goodrx.com/"
+# html = requests.get(url)
+# header = {'origin': 'https://www.goodrx.com/'} 
+# r = BeautifulSoup(html.content , 'lxml')
 
-def get_ip():
-    response = requests.get('https://api64.ipify.org?format=json').json()
-    return response["ip"]
+driver = webdriver.Chrome(executable_path="C:\chromedriver.exe")
+driver.implicitly_wait(0.5)
+#launch URL
+driver.get("https://www.google.com/")
+#identify search box
+m = driver.find_element_by_name("q")
+#enter search text
+m.send_keys("Tutorialspoint")
+time.sleep(0.2)
+#perform Google search with Keys.ENTER
+m.send_keys(Keys.ENTER)
 
-
-def get_location():
-    ip_address = get_ip()
-    response = requests.get(f'https://ipapi.co/{ip_address}/json/').json()
-    location_data = {
-        "ip": ip_address,
-        "city": response.get("city"),
-        "region": response.get("region"),
-        "country": response.get("country_name")
-    }
-    return location_data
-
-
-r = requests.get('https://www.google.com/maps')
- 
-# Parsing the HTML
-soup = BeautifulSoup(r.content, 'html.parser')
-location = get_location()
-search = location["city"]
-
-
-driver = webdriver.Firefox()
-driver.implicitly_wait(10) # this lets webdriver wait 10 seconds for the website to load
-driver.get("https://www.google.com/maps")
-
-
-# text_box = driver.find_element("id", "searchbox")
-text_box = driver.find_element(By.ID, "searchbox")
-text_box.click()
-text_box.send_keys(search) # enter text in input
-
-driver.find_element("id", 'searchbox-searchbutton').click() # click the submit button
-
-driver.quit()     
+<<<<<<< Updated upstream
+=======
 
 
 
 
+>>>>>>> Stashed changes
