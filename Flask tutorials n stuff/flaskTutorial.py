@@ -13,7 +13,7 @@ app = Flask(__name__)
 #def index(): #Defines the main page
 #    return 'This is the homepage' # This is what is returned when we head to the main(home page)
 
-@app.route('/tuna')#Edit this later -> This basically sets a route to a another page from main. change the words behind the / to change the page you want to go to
+@app.route('/TestMain.html')#Edit this later -> This basically sets a route to a another page from main. change the words behind the / to change the page you want to go to
 def tuna():#Function doesn't have to be same name as HTML link
     return '<h1>This is a test<h1>'#Return values can run HTML, although you should never directly use HTML in the return method(using tags)
 
