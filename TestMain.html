@@ -27,20 +27,40 @@
 
         <!-- Masthead-->
         <header class="masthead">
-            <div class="container">
-<<<<<<< HEAD
-                <div class="masthead-subheading" style="color: rgb(0, 0, 0);">Welcome To Our Studio!</div>
-                <div class="masthead-heading text-uppercase" style="color: rgb(0, 0, 0);">It's Nice To Meet You</div>
-                <a class="btn btn-primary btn-xl text-uppercase" href="#services">Tell Me More</a>                
-=======
-                <div class="masthead-subheading" style="color: rgb(0, 0, 0);">Welcome To Project!</div>
+            <div class="container">               
+                <div class="masthead-subheading" style="color: rgb(0, 0, 0);">Welcome to our Project!</div>
                 <div class="masthead-heading text-uppercase" style="color: rgb(0, 0, 0);">DrugWizard</div>
                     <form>
                         <label for="search"> </label>
                         <input type="text" id="search" name="search" placeholder="Search for Medication:">
 
                         <button class="stylish-button">Click Here!</button>
+                        <button id="Getprices">Click Here!</button>
+                        <div id="output"></div>
                     </form>
+<<<<<<< Updated upstream
+=======
+                    <script>
+                        document.getElementById('Getprices').addEventListener('click', getprices);
+                        let output = "<h2>Drugs</h2>"
+                        function getprices(){
+                            html = fetch("https://api.fda.gov/drug/drugsfda.json?limit=100")
+                            .then((res) => res.json())
+                            .then((data) => {
+                                const obj = JSON.parse(data)
+                                console.log(obj);
+                                output += `
+                                <ul>
+                                <li>${obj.results}<l1>
+                                </ul>`;
+                            })
+                            
+                        }
+                        document.getElementById('output').innerHTML = output;
+
+                    </script>
+
+>>>>>>> Stashed changes
                     
                 </div>                
             </div>
