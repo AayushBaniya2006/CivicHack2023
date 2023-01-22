@@ -1,2 +1,3 @@
 # CivicHack2023
-Some thing that's being done. :)
+A website which allows you to view information about pharmaceutical drugs
+	¯\_(ツ)_/¯
