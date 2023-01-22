@@ -27,7 +27,13 @@
 
         <!-- Masthead-->
         <header class="masthead">
-            <div class="container">               
+            <div class="container">  
+                <div id="banner">
+                    <section class="header">
+                        <h1>DrugWizard</h1>
+                        <p></p>
+                        <a class="btn-bgstroke"></a>
+                    </section>
                 <div class="masthead-subheading" style="color: rgb(0, 0, 0);">Welcome to our Project!</div>
                 <div class="masthead-heading text-uppercase" style="color: rgb(0, 0, 0);">DrugWizard</div>
                     <form>
@@ -35,29 +41,13 @@
                         <input type="text" id="search" name="search" placeholder="Search for Medication:">
 
                         <button class="stylish-button">Click Here!</button>
-                        <button id="Getprices">Click Here!</button>
                         <div id="output"></div>
                     </form>
-                    <script>
-                        document.getElementById('Getprices').addEventListener('click', getprices);
-                        let output = "<h2>Drugs</h2>"
-                        function getprices(){
-                            html = fetch("https://api.fda.gov/drug/drugsfda.json?limit=100")
-                            .then((res) => res.json())
-                            .then((data) => {
-                                const obj = JSON.parse(data)
-                                console.log(obj);
-                                output += `
-                                <ul>
-                                <li>${obj.results}<l1>
-                                </ul>`;
-                            })
-                            
-                        }
-                        document.getElementById('output').innerHTML = output;
 
-                    </script>
+<<<<<<< Updated upstream
+=======
 
+>>>>>>> Stashed changes
                     
                 </div>                
             </div>
