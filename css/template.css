@@ -11800,15 +11800,20 @@ section#contact form#contactForm :-ms-input-placeholder {
 
 form {
   margin-right: 3%;
-  display: block;
-  align-items: center;
+  align-items: left;
 }
 
 #search {
+  
   color: black;
   padding: 0.5em;
-  border: 15px solid gray;
-  border-radius: 5px;
+  border: 1px solid gray;
+  border-radius: 1px;
   margin-right: 1em;
   flex: 1;
+}
+
+label{
+  color: black;
+  position: relative;
 }
