@@ -76,6 +76,22 @@
   }
 }
 
+.drugInfo {
+  max-width: 40%;
+  margin-left: 3.5%;
+  display: inline-block;
+}
+.drugInfo2 {
+  max-width: 40%;
+  margin-left: 3.5%;
+  display: inline-block;
+}
+
+.drugPic{0
+  max-width: 100px;
+  max-height: 100px;
+  
+}
 body {
   margin: 0;
   font-family: var(--bs-body-font-family);
