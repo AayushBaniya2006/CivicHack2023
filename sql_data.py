@@ -14,9 +14,6 @@ c = conn.cursor()
 #            email TEXT
 #          )""")
 
-#Hopefully a method that changes the username. The name in changeName(name) refers to the original username
-
-
 #Inserts a new user into the SQl database
 def insert_user(user):
     with conn:
