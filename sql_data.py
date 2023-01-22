@@ -12,47 +12,37 @@ c = conn.cursor()
 #            username TEXT,
 #            password TEXT,
 #            email TEXT
-#            )""")
-
-#Hopefully, a method that removes usernames. The name in the removeUser(name) refers to the original username that a user wishes to change
-def removeUser(name):
-    theUser = get_users_by_name(name)
-    remove_user(theUser)
+#          )""")
 
 #Hopefully a method that changes the username. The name in changeName(name) refers to the original username
-def changeName(name):
-    print('Enter your new name')
-    x = input()
-    theUser = get_users_by_name(name)
-    update_username(theUser, x)
+
 
 #Inserts a new user into the SQl database
 def insert_user(user):
     with conn:
-        c.execute("INSERT INTO users VALUES (:username, :password : email)", {'username': user.username, 'password': user.password, 'email': user.email})
+        c.execute("INSERT INTO users VALUES (:username, :password, :email)", {'username': user.name, 'password': user.password, 'email': user.email})
 
 #Looks through the database to find users whose usernames = name
 def get_users_by_name(name):
-    c.execute("SELECT * FROM employees WHERE username=:username", {'username': name})
+    c.execute("SELECT * FROM users WHERE username=:username", {'username': name})
     return c.fetchall()
     
 #Changes username
 def update_username(user, name):
         with conn:
-            c.execute("""UPDATE users SET username = :username
-                  WHERE password = :password AND email = :email""",
-                  {'password': user.password, 'email': user.email, 'username': name})
+         c.execute("""UPDATE users SET username = :username
+              WHERE password = :password AND email = :email""",
+               {'password': user.password, 'email': user.email, 'username': name})
 #Similar to username -> Changes password
 def update_userpassword(user, password):
     with conn:
-        c.execute("""UPDATE users SET password = :password
+            c.execute("""UPDATE users SET password = :password
                   WHERE username = :username AND email = :email""",
-                  {'username': user.username, 'email': user.email, 'username': password})
+                  {'username': user.name, 'email': user.email, 'password': password})
 #Deletes users whose usernames and passwords are equal to the user compared to.
 def remove_user(user):
     with conn:
-        c.execute("DELETE from users WHERE username = :username AND password = :password",
-                  {'username':user.first, 'password': user.password})
+        c.execute("DELETE from users WHERE username = :username AND password = :password",{'username':user.name, 'password': user.password})
 
 #incomplete password and username checker
 def check_Credentials(name, password):
@@ -61,4 +51,5 @@ def check_Credentials(name, password):
         return True
     return False
 
-insert_user(Users())
+emps = get_users_by_name('potatoman')
+print(emps)
