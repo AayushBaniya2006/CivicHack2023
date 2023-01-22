@@ -5,33 +5,18 @@
 */
 //
 // Scripts
-// 
-const drugPrices = document.querySelector("[data-drug-prices]")
-
-const options = {
-	method: 'GET',
-	headers: {
-		'X-RapidAPI-Key': 'dd5fb89b79msh6373beaf106d4b5p1f8fbcjsn6a74372dc4e9',
-		'X-RapidAPI-Host': 'drug-info-and-price-history.p.rapidapi.com'
-	}
-};
-
-fetch('https://drug-info-and-price-history.p.rapidapi.com/1/druginfo?drug=advil', options)
-	.then(response => response.json())
-	.then(response => console.log(response))
-	.catch(err => console.error(err));
-
-
+//
 const drugprices = document.querySelector("[data-drug-price]")
-fetch("https://api.fda.gov/drug/event.json?search=patient.drug.openfda.brand_name:Aspirin&limit=1")
+fetch("https://api.fda.gov/drug/drugsfda.json?limit=5")
 .then(res => res.json())
-.then(data => {
-    data.forEach(user => {
-        const card = drugprices.content.cloneNode(true).children[0]
-        console.log(card)
+.then(data => console.log(data))
+// .then(data => {
+//     data.forEach(user => {
+//         const card = drugprices.content.cloneNode(true).children[0]
+//         console.log(card)
 
-    })
-});
+//     })
+// });
 
 
 window.addEventListener('DOMContentLoaded', event => {
