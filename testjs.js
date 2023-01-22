@@ -7,7 +7,7 @@
 // Scripts
 //
 const drugprices = document.querySelector("[data-drug-price]")
-fetch("https://api.fda.gov/drug/drugsfda.json?limit=5")
+fetch("https://api.fda.gov/drug/drugsfda.json?limit=100")
 .then(res => res.json())
 .then(data => console.log(data))
 // .then(data => {
