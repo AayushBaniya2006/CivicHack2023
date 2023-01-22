@@ -1,7 +1,7 @@
 #Creates the user class
 class Users:
     
-    def __init__(self, name, password, email):
+    def __init__(self, name, email, password ):
         self.name = name
         self.password = password
         self.email = email

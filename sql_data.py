@@ -47,3 +47,9 @@ def check_Credentials(name, password):
     if user.getName() == name or user.getPassword() == password:
         return True
     return False
+<<<<<<< Updated upstream
+=======
+
+insert_user(Users(input("Enter Your Full Name: "),input("Enter Your Email: "), input("Create Your Password: ")))
+print("You have successfully created a new account")
+>>>>>>> Stashed changes

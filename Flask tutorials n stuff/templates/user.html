@@ -1,0 +1,7 @@
+<!DOCTYPE html>
+{% if user %} <!--Some python/flask function that checks the user variable. The specific purpose of this function is to see if the user variable is filled-->
+    <h1>Hello {{user}}</h1> <!--Runs when the user variable is filled.-->
+{% else %}
+    <h1>Please log in</h1><!--Runs when the user variable is none/empty-->
+{% endif %}
+<h3>Just here for the comment</h3><!--The content of the HTML page is dependent on the variable-->
