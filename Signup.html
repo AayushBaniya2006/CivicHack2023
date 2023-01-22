@@ -110,13 +110,21 @@
               <input type="checkbox" class="form-check-input" id="exampleCheck1">
               <label class="form-check-label" for="exampleCheck1">Check me out</label>
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary">Log In</button>
             
             
             <!--Sign Up stuff-->
-            <button id="expand-button">Expand</button>
+            <button class = "btn btn-warning" type = "button" id="expand-button">Sign Up</button>
             <div id="input-container" style="display: none;">
-              <input type="text" id="expanded-input" placeholder="Enter text here">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Enter email address</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Create Password</label>
+                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                </div>
+                <button class = "btn btn-primary" type = "button" id="expand-button">Create Account</button>
             </div>
             
             <script>
