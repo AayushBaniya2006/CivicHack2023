@@ -25,10 +25,6 @@ time.sleep(0.2)
 #perform Google search with Keys.ENTER
 m.send_keys(Keys.ENTER)
 
-<<<<<<< Updated upstream
-=======
 
 
 
-
->>>>>>> Stashed changes
