@@ -1,17 +1,27 @@
 import requests
 import json
 
-drug_name = input("Name of the medicine:")
-api_endpoint = "https://api.fda.gov/drug/event.json?search=patient.drug.openfda.brand_name:"
-response = requests.get(api_endpoint + drug_name + "&limit=1")
+# Get the drug name and location from the user
+drug_name = input("Enter the name of the drug: ")
+location = input("Enter your location (zip code or city, state): ")
+
+# Set the API endpoint
+api_endpoint = "https://www.goodrx.com/api/compare-prices/"
+
+# Set the API parameters
+params = {'name': drug_name, 'location': location}
+
+# Make the API call
+response = requests.get(api_endpoint, params=params)
 
 # Check if the API returned a successful response
 if response.status_code == 200:
     # Parse the JSON data
     data = json.loads(response.text)
-    # Extract the price from the JSON data
-    price = data['results'][0]['patient']['drug'][0]['openfda']['price_and_pack_size']
-    # Print the price
-    print("Price of " + drug_name + ": " + price)
+    # Extract the cheapest price from the JSON data
+    prices = data['prices']
+    cheapest_price = min(prices, key=lambda x: x['price'])
+    # Print the cheapest price
+    print("The cheapest price for " + drug_name + " in " + location + " is $" + str(cheapest_price['price']))
 else:
     print("Error: Could not retrieve data from the API.")
