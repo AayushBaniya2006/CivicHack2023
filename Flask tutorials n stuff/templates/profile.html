@@ -1,3 +1,4 @@
 <!DOCTYPE html>
 <title>Welcome to the New Boston</title>
+<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='style.css')}}"> <!--Dynamic URL that calls for both the "static" directory the css file is located in and the css file itself.-->
 <h1>Hey there {{substitute}}</h1> <!--The variable name passes the variable in .py file(the potato=name) into the template -->>
