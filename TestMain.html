@@ -59,24 +59,6 @@
                         }
                         document.getElementById('output').innerHTML = output;
 
-<<<<<<< Updated upstream
-                    
-                </div>                
-            </div>
-            <py-script>
-                drugNeeded = PleaseWork
-                for drug in data["results"]:
-                    for product in drug["products"]:
-                        if drugNeeded.upper() == product["brand_name"]:
-                            print("Method of Consumption: " + product["dosage_form"])
-                            print("Indredients:")
-                        for ingredient in product["active_ingredients"]:
-                            print(ingredient["strength"]+" " + ingredient["name"])
-                        break
-    
-            
-            </py-script>
-=======
                     </script>
 
                     
@@ -108,7 +90,6 @@
                 // add an event listener to call the function when the button is clicked
                 document.getElementById("submit_button").addEventListener("click", getDrugName);
             </script>
->>>>>>> Stashed changes
             <!-- JS for changing info at bottom-->
             <div style ="color:black">
                 
