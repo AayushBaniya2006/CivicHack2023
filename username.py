@@ -22,4 +22,3 @@ class Users:
     def __repr__(self):
         return "Employee('{}','{}', '{}')".format(self.name, self.password, self.email)
     
-    

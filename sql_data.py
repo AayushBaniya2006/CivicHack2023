@@ -60,3 +60,5 @@ def check_Credentials(name, password):
     if user.getName() == name or user.getPassword() == password:
         return True
     return False
+
+insert_user(Users())

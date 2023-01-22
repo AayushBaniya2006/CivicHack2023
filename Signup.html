@@ -111,7 +111,24 @@
               <label class="form-check-label" for="exampleCheck1">Check me out</label>
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
-          </form>
+            
+            
+            <!--Sign Up stuff-->
+            <button id="expand-button">Expand</button>
+            <div id="input-container" style="display: none;">
+              <input type="text" id="expanded-input" placeholder="Enter text here">
+            </div>
+            
+            <script>
+              document.getElementById("expand-button").addEventListener("click", function() {
+                var inputContainer = document.getElementById("input-container");
+                if (inputContainer.style.display === "none") {
+                  inputContainer.style.display = "block";
+                } else {
+                  inputContainer.style.display = "none";
+                }
+              });
+            </script>
 
           
         <!-- Contact-->
