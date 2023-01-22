@@ -17,6 +17,7 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/template.css" rel="stylesheet" />
         <script src = "testjs.js"></script>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
     </head>
     <body id="page-top">
 
@@ -30,15 +31,15 @@
             <div class="container">               
                 <div class="masthead-subheading" style="color: rgb(0, 0, 0);">Welcome to our Project!</div>
                 <div class="masthead-heading text-uppercase" style="color: rgb(0, 0, 0);">DrugWizard</div>
-                <h2>Method of Consumption: {{ method_of_consumption }}</h2>
-                <h2>Ingredients:</h2>
-                <ul>
+                <h2 style = "color:black">Method of Consumption: {{ method_of_consumption }}</h2>
+                <h2 style = "color:black">Ingredients:</h2>
+                <ul style = "color:black">
                 {% for ingredient in ingredients %}
                     <li>{{ ingredient }}</li>
                 {% endfor %}
                 </ul>
                 <form method="POST" action="">
-                    <input type="text" name="drug" placeholder="Enter drug name">
+                    <input type="text" name="drug" placeholder="Enter drug name" style = "color:black">
                     <input type="submit" value="Search">
                 </form>
                     <script>
@@ -65,29 +66,7 @@
                 </div>                
             </div>
 
-            <!-- JS for changing info at bottom-->
-            <div style ="color:black">
-                
-                <div> 
-                    <div class = "drugInfo">   
-                        <div><img src="Shocked.jpg" class = "drugPic" id = "drugPic" ></div>  
-                        <div id = "drugInfo">
-                             sdfjasds fdsfn askdf dfdsfa sdf  safdln asfkn salfndjfansf                  
-                        </div>
-                    </div>
-                    <div id = "drugInfo2" class = "drugInfo2"> 
-                        dfsd fjdsaljfndsj aksf a f adlsk flkjdsha fllk fhaljkf hsdfa hf
-                    </div>
-                </div>
-                
-            </div>
-        <script>
-            
-            function changeDrugInfo(){
-                document.getElementById("drugInfo").innerHTML = "";
-                document.getElementById("drugInfo2").innerHTML = "";
-            };
-        </script>
+           
         </header>
         
         <!-- Team-->
@@ -99,7 +78,7 @@
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="team-member">
-                            <img class="mx-auto rounded-circle" src="Shocked.jpg" alt="..." />
+                            <img class="mx-auto rounded-circle" src="{{ url_for('static', filename='Shocked.jpg') }}" alt="image" src="" alt="..." />
                             <h4>Aayush Baniya</h4>
                             <p class="text-muted">CSS Manager</p>
                          
@@ -107,7 +86,7 @@
                     </div>
                     <div class="col-lg-6">
                         <div class="team-member">
-                            <img class="mx-auto rounded-circle" src="BigHimalaya.jpg" alt="..." />
+                            <img class="mx-auto rounded-circle" src="{{ url_for('static', filename='BigHimalaya.jpg') }}" alt="image" alt="..." />
                             <h4>Qays Hawwar</h4>
                             <p class="text-muted">Front-End Developer</p>
                         
@@ -115,7 +94,7 @@
                     </div>
                     <div class="col-lg-6">
                         <div class="team-member">
-                            <img class="mx-auto rounded-circle" src="Rizzler.png" alt="..." />
+                            <img class="mx-auto rounded-circle" src="{{ url_for('static', filename='Rizzler.png') }}" alt="image" alt="..." />
                             
                             <h4>Parth Sangani</h4>
                             <p class="text-muted">API Implementation</p>
@@ -124,7 +103,7 @@
                     </div>
                     <div class="col-lg-6">
                         <div class="team-member">
-                            <img class="mx-auto rounded-circle" src="WildernessExplorer.png" alt="..." />
+                            <img class="mx-auto rounded-circle" src="{{ url_for('static', filename='WildernessExplorer.png') }}" alt="image" alt="..." />
                             <h4>Johan Park</h4>
                             <p class="text-muted">Backend Developer</p>
                             <p class="text-muted">(He wouldn't hook us up with a photo so we chose the most accurate)</p>
@@ -224,15 +203,3 @@
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
         <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
     </body>
-</html>
-<h2>Method of Consumption: {{ method_of_consumption }}</h2>
-<h2>Ingredients:</h2>
-<ul>
-{% for ingredient in ingredients %}
-    <li>{{ ingredient }}</li>
-{% endfor %}
-</ul>
-<form method="POST" action="">
-    <input type="text" name="drug" placeholder="Enter drug name">
-    <input type="submit" value="Search">
-</form>
