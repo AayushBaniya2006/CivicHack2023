@@ -35,7 +35,32 @@
                         <input type="text" id="search" name="search" placeholder="Search for Medication:">
 
                         <button class="stylish-button">Click Here!</button>
+                        <button id="Getprices">Click Here!</button>
+                        <div id="output"></div>
                     </form>
+<<<<<<< Updated upstream
+=======
+                    <script>
+                        document.getElementById('Getprices').addEventListener('click', getprices);
+                        let output = "<h2>Drugs</h2>"
+                        function getprices(){
+                            html = fetch("https://api.fda.gov/drug/drugsfda.json?limit=100")
+                            .then((res) => res.json())
+                            .then((data) => {
+                                const obj = JSON.parse(data)
+                                console.log(obj);
+                                output += `
+                                <ul>
+                                <li>${obj.results}<l1>
+                                </ul>`;
+                            })
+                            
+                        }
+                        document.getElementById('output').innerHTML = output;
+
+                    </script>
+
+>>>>>>> Stashed changes
                     
                 </div>                
             </div>

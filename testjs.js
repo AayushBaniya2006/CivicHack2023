@@ -6,10 +6,6 @@
 //
 // Scripts
 //
-const drugprices = document.querySelector("[data-drug-price]")
-fetch("https://api.fda.gov/drug/drugsfda.json?limit=5")
-.then(res => res.json())
-.then(data => console.log(data))
 // .then(data => {
 //     data.forEach(user => {
 //         const card = drugprices.content.cloneNode(true).children[0]
