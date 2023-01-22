@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Prescriptions4u</title>
+        <title>DrugWizard</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Font Awesome icons (free version)-->
@@ -17,6 +17,7 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/template.css" rel="stylesheet" />
         <script src = "testjs.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     </head>
     <body id="page-top">
 
@@ -32,9 +33,9 @@
                 <div class="masthead-heading text-uppercase" style="color: rgb(0, 0, 0);">DrugWizard</div>
                     <form>
                         <label for="search"> </label>
-                        <input type="text" id="search" name="search" placeholder="Search for Medication:">
-                        <button class="stylish-button">Click Here!</button>
-                        
+                        <input class="PleaseWork"type="text" id="search" name="search" placeholder="Search for Medication:">
+
+                        <button id="Getprices">Click Here!</button>
                         <div id="output"></div>
                     </form>
                     <script>
@@ -57,10 +58,26 @@
 
                     </script>
 
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
                     
                 </div>                
             </div>
-
+            <py-script>
+                drugNeeded = PleaseWork
+                for drug in data["results"]:
+                    for product in drug["products"]:
+                        if drugNeeded.upper() == product["brand_name"]:
+                            print("Method of Consumption: " + product["dosage_form"])
+                            print("Indredients:")
+                        for ingredient in product["active_ingredients"]:
+                            print(ingredient["strength"]+" " + ingredient["name"])
+                        break
+    
+            
+            </py-script>
             <!-- JS for changing info at bottom-->
             <div style ="color:black">
                 
@@ -84,6 +101,7 @@
                 document.getElementById("drugInfo2").innerHTML = "";
             };
         </script>
+
         </header>
         
         <!-- Team-->
