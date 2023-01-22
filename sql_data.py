@@ -21,7 +21,7 @@ def removeUser(name):
 
 #Hopefully a method that changes the username. The name in changeName(name) refers to the original username
 def changeName(name):
-    print('Enter the your new name')
+    print('Enter your new name')
     x = input()
     theUser = get_users_by_name(name)
     update_username(theUser, x)
