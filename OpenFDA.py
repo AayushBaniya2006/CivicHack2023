@@ -24,4 +24,4 @@ if response.status_code == 200:
     # Print the cheapest price
     print("The cheapest price for " + drug_name + " in " + location + " is $" + str(cheapest_price['price']))
 else:
-    print("Error: Could not retrieve data from the API.")
+    print("Error: Could not retrieve data from the API. ")
