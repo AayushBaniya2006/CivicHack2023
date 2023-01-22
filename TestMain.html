@@ -19,26 +19,47 @@
         <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
         <script defer src="https://pyscript.net/latest/pyscript.js"></script>
         <script src = "testjs.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     </head>
     <body id="page-top">
         
 
         <!-- Masthead-->
         <header class="masthead">
-            <div class="container">  
-                <div id="banner">
-                    <section class="header">
-                    </section>
+            <div class="container">               
                 <div class="masthead-subheading" style="color: rgb(0, 0, 0);">Welcome to our Project!</div>
                 <div class="masthead-heading text-uppercase" style="color: rgb(0, 0, 0);">DrugWizard</div>
                     <form>
                         <label for="search"> </label>
+<<<<<<< Updated upstream
                         <input class="PleaseWork"type="text" id="search" name="search" placeholder="Search for Medication:">
 
+=======
+                        <input type="text" id="search" name="search" placeholder="Search for Medication:">                     
+>>>>>>> Stashed changes
                         <button class="stylish-button">Click Here!</button>
+                        <button id="Getprices">Click Here!</button>
                         <div id="output"></div>
                     </form>
+                    <script>
+                        document.getElementById('Getprices').addEventListener('click', getprices);
+                        let output = "<h2>Drugs</h2>"
+                        function getprices(){
+                            html = fetch("https://api.fda.gov/drug/drugsfda.json?limit=100")
+                            .then((res) => res.json())
+                            .then((data) => {
+                                const obj = JSON.parse(data)
+                                console.log(obj);
+                                output += `
+                                <ul>
+                                <li>${obj.results}<l1>
+                                </ul>`;
+                            })
+                            
+                        }
+                        document.getElementById('output').innerHTML = output;
 
+<<<<<<< Updated upstream
                     
                 </div>                
             </div>
@@ -55,6 +76,39 @@
     
             
             </py-script>
+=======
+                    </script>
+
+                    
+                </div>                
+            </div>
+        
+            <form>
+                <label for="drug_name">Enter drug name:</label>
+                <input type="text" id="drug_name" name="drug_name">
+                <button type="button" id="submit_button">Submit</button>
+              </form>
+
+            <script>
+                function getDrugName() {
+                    
+                    var drug_name = document.getElementById("drug_name").value;
+                    // send the input value to a Python script using an HTTP request
+                    $.ajax({
+                        
+                        type: "POST",
+                        url: '/get_drug_name',
+                        data: {drug_name:drug_name},
+                        success: function(){
+                            alert('success');
+                        }
+                    });
+                }
+              
+                // add an event listener to call the function when the button is clicked
+                document.getElementById("submit_button").addEventListener("click", getDrugName);
+            </script>
+>>>>>>> Stashed changes
             <!-- JS for changing info at bottom-->
             <div style ="color:black">
                 
@@ -78,6 +132,7 @@
                 document.getElementById("drugInfo2").innerHTML = "";
             };
         </script>
+
         </header>
         
         <!-- Team-->
@@ -196,8 +251,10 @@
         <footer class="footer py-4">
             <div class="container">
                 <div class="row align-items-center">
-                    <div class="col-lg-4 text-lg-start">Copyright &copy; Your DrugWizard 2022</div>
+                    <div class="col-lg-4 text-lg-start">Copyright &copy; Your Website 2022</div>
                     <div class="col-lg-4 my-3 my-lg-0">
+                        
+                
                     </div>
                 </div>
             </div>
